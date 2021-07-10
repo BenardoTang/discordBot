@@ -1,5 +1,6 @@
 import json
 import discord
+from discord.ext import commands
 import os
 import requests
 import webbrowser
@@ -35,16 +36,30 @@ async def on_message(message):
     msg = message.content
 
     if msg.startswith('$hello'):
+        await message.delete()
         await message.channel.send('Hello!')
     if msg.startswith('$help'):
+        await message.delete()
         await message.channel.send(HELP_COMMAND)
     if msg.startswith("$build"):
+        await message.delete()
         url = 'https://poebuildroulette.github.io/#'
         webbrowser.open(url)
         await message.channel.send("xd")
+    if msg.startswith("$gay"):
+        await message.delete()
+        send = 'minng loves boys'
+        await message.channel.send(send)
     if msg.startswith("$inspire"):
+        await message.delete()
         quote = get_quote()
         await message.channel.send(quote)
+    if msg.startswith("$booba"):
+        await message.delete()
+        await message.channel.send('https://tenor.com/view/booba-gif-19163211')
+    if msg.startswith("$xd"):
+        await message.delete()
+        await message.channel.send('https://tenor.com/view/pepe-laugh-he-doesnt-know-pepe-gif-14019260')
 
 
 # client.run(os.getenv('TOKEN'))
